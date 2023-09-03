@@ -1,26 +1,28 @@
-// import "../../public/biuld/tailwind.css"
-
+//select
 const city = document.querySelector("#city")
-// const searchBtn = document.querySelector("#search-btn")
 const result = document.querySelector("#result")
 const searchForm = document.querySelector("form")
 
+// events
 searchForm.addEventListener("submit", getWeather)
 window.addEventListener("load", getWeather)
 
-
+// function to fetch data and use them
 function getWeather(e){
     e.preventDefault();
     let cityValue = city.value;
 
+    // if the input value is empty
     if(cityValue == ""){
         result.innerHTML = `<p class="text-xl text-blue-800"> Please enter a city name </p>`
+        // if it's not empty
     }else {
         let url = `https://api.openweathermap.org/data/2.5/weather?q=${cityValue}&appid=${key}&units=metric`;
-
+        // empty the input value
         cityValue = "";
         fetch(url)
         .then((resp)=> resp.json())
+        // if city name is valid
         .then((data)=>{
             result.innerHTML = `
             <h2 class="text-2xl font-bold text-blue-900 mb-2"> - ${data.name} -</h2>
@@ -40,6 +42,7 @@ function getWeather(e){
             </div>
             `
         })
+        //if city name isn't valid
         .catch(()=>{
             result.innerHTML = `<h1 class="text-xl text-blue-800">The city not found!</h1>`
         })
