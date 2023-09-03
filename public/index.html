@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="./build/tailwind.css">
+</head>
+<body>
+    <div class="container max-w-sm sm:max-w-md md:max-w-lg flex flex-col mx-auto p-5 mt-5  h-[40rem]">
+
+        <div id="weather-container" class="w-full bg-blue-200 mt-5 p-8 h-full rounded-xl border border-slate-500 shadow-xl">
+            <form type="submit" id="search-container" class="flex gap-x-2 bg-transparent mb-10">
+                <input type="text" id="city" value=""
+                    placeholder="Type the city name here..." 
+                    class="flex-1 p-3 border border-blue-400 rounded-lg text-blue-600 outline-none bg-blue-100 shadow-xl">
+                <button type="submit" id="search-btn"               
+                class="w-30 p-2 bg-blue-50 text-blue-800 border border-blue-400 rounded-lg text-sm shadow-xl">Search City</button>
+            </form>
+            <div id="result" class="text-center"></div>
+        </div>
+
+    </div>
+
+    <script src="./js/key.js"></script>
+    <script src="./js/scripts.js"></script>
+
+</body>
+</html>
